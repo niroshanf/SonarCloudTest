@@ -31,7 +31,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
       - name: Run tests
-        run: xcodebuild clean test -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
-      - name: Build App
-        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild test -scheme SonarCloudTest -project SonarCloudTest.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.0' | xcpretty && exit ${PIPESTATUS[0]}
