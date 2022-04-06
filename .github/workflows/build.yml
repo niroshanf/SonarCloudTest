@@ -28,14 +28,10 @@ jobs:
           # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build:
-    env:
-      SCHEME: "SonarCloudTest"
-      DEVICE: "iPhone 11"
-      DERIVED_DATA_PATH: "DerivedData"
     runs-on: macOS-latest
     steps:
-    - name: Checkout project
-      uses: actions/checkout@v2
-    - name: Build application
-      run: |
-        set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
+      - uses: actions/checkout@v2
+      - name: Force Xcode 11
+        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
+      - name: Build App
+        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
