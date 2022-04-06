@@ -29,7 +29,7 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build:
     env:
-      SCHEME: "Actions"
+      SCHEME: "SonarCloudTest"
       DEVICE: "iPhone 11"
       DERIVED_DATA_PATH: "DerivedData"
     runs-on: macOS-latest
