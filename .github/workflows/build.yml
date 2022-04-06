@@ -1,5 +1,4 @@
 name: Build
-
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
@@ -11,9 +10,8 @@ on:
       - opened
       - synchronize
       - reopened
-
 jobs:
- sonarcloud:
+  sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
