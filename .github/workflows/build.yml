@@ -1,5 +1,4 @@
 name: Build
-
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
@@ -11,7 +10,6 @@ on:
       - opened
       - synchronize
       - reopened
-
 jobs:
   sonarcloud:
     name: SonarCloud
@@ -28,11 +26,12 @@ jobs:
           # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build:
-    runs-on: macos-latest
+    runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Build
-         run: swift build
+      - uses: actions/checkout@v2
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
       - name: Run tests
-         run: swift test
-
+        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination platform=iOS\ Simulator,OS=13.3,name=iPhone\ 11 \ clean test | xcpretty
+      - name: Build App
+        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
