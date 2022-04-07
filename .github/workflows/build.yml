@@ -46,5 +46,5 @@ jobs:
 #      - name: list simulators
 #        run: xcrun simctl list --json devices available
       - name: Run tests
-        run: xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 11,OS:15.2' clean test
+        run: xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2' clean test
 #        'platform=iOS Simulator,name=iPhone 13,OS=15.0'
