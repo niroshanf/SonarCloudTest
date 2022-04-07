@@ -38,6 +38,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
+        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
       - name: Run tests
-        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "platform=iOS Simulator,OS=14.0,name=iPhone 11" clean test
+        run: xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' clean test
