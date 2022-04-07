@@ -37,9 +37,12 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
-      - name: list xcode
-        run:  ls /Applications | grep Xcode
-#      - name: Select Xcode
-#        run: sudo xcode-select -switch /Applications/Xcode_13.0.app
-#      - name: Run tests
-#        run: xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' clean test
+#      - name: list xcode
+#        run:  ls /Applications | grep Xcode
+#      - name: list simulators
+#        run: xcrun simctl list
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_13.2.app
+      - name: Run tests
+        run: xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 13' clean test
+#        'platform=iOS Simulator,name=iPhone 13,OS=15.0'
