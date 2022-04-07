@@ -40,5 +40,5 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_13.0.app
       - name: Run tests
-        run: xcrun instruments -s devices
+        run: xcrun simctl list
 #        xcodebuild -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' clean test
