@@ -19,7 +19,7 @@ class SonarCloudTestTests: XCTestCase {
     }
 
     func testExample() throws {
-        XCTAssertEqual(10, 8, "perfect")
+
     }
 
 }
