@@ -15,10 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let tt = xx! + 5
-        
-        print(tt)
-        
+        print("hello world example")
     }
 
 

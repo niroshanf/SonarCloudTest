@@ -25,19 +25,50 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  build:
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
-      - name: Build App
-        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
-  test:
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
-      - name: Run tests
-        run: xcodebuild test -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "platform=iOS Simulator,OS=13.3,name=iPhone 11" | xcpretty
+#  build:
+#    runs-on: macOS-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Select Xcode
+#        run: sudo xcode-select -switch /Applications/Xcode_13.0.app && /usr/bin/xcodebuild -version
+#      - name: Build App
+#        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+#  test:
+#    runs-on: macOS-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: list xcode
+#        run:  ls /Applications | grep Xcode
+#      - name: list simulators
+#        run: xcrun simctl list
+#      - name: Select Xcode
+#        run: sudo xcode-select -switch /Applications/Xcode_13.2.app
+#      - name: list simulators
+#        run: xcrun simctl list --json devices available
+#      - name: Run tests
+#        run: xcodebuild test -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2'
+#        'platform=iOS Simulator,name=iPhone 13,OS=15.0'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
