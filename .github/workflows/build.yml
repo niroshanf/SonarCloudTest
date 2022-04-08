@@ -43,6 +43,10 @@ jobs:
 #        run: xcrun simctl list
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_13.2.app
+      - name: install command line tools
+        run: xcode-select --install
+      - name: Accept agreement
+        run: sudo xcodebuild -license accept
 #      - name: list simulators
 #        run: xcrun simctl list --json devices available
       - name: Pre-start Simulator
