@@ -34,7 +34,7 @@ jobs:
 #      - name: Build App
 #        run: xcodebuild -project "SonarCloudTest.xcodeproj" -scheme "SonarCloudTest" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
   test:
-    runs-on: macOS-11
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
 #      - name: list xcode
@@ -46,5 +46,29 @@ jobs:
 #      - name: list simulators
 #        run: xcrun simctl list --json devices available
       - name: Run tests
-        run: xcodebuild test -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 12 Pro'
+        run: xcodebuild test -project SonarCloudTest.xcodeproj -scheme SonarCloudTest -destination 'platform=iOS Simulator,name=iPhone 8'
 #        'platform=iOS Simulator,name=iPhone 13,OS=15.0'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
