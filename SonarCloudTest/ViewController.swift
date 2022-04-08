@@ -9,11 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var xx: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        print("hello world example")
+        print("hello world")
     }
 
 
